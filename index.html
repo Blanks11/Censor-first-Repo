@@ -4,86 +4,263 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Help me collect my Best Technician of the Year award</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f2f5f7;--card:#fff;--ink:#12263a;--muted:#4d6073;--brass:#9a6b12;--line:#d5dde4;--btn:#12263a;--btnt:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b27;--card:#17283a;--ink:#eef3f7;--muted:#a9b9c8;--brass:#e0b052;--line:#2c4157;--btn:#e0b052;--btnt:#12263a}}
-:root[data-theme="dark"]{--bg:#0f1b27;--card:#17283a;--ink:#eef3f7;--muted:#a9b9c8;--brass:#e0b052;--line:#2c4157;--btn:#e0b052;--btnt:#12263a}
+:root{--bg:#f3f1ec;--card:#fff;--ink:#0f2236;--muted:#50657a;--brass:#a8741a;--brass2:#d9a441;--line:#d9dfe5;--hero:#0f2236;--heroink:#f5efe2;--btn:#0f2236;--btnt:#fff;--shadow:0 18px 40px -22px rgba(15,34,54,.45);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a141f;--card:#14263a;--ink:#eef3f7;--muted:#a3b4c4;--brass:#e0b052;--line:#27405a;--hero:#07101a;--btn:#e0b052;--btnt:#0f2236;--shadow:0 18px 40px -22px #000}}
+:root[data-theme="dark"]{--bg:#0a141f;--card:#14263a;--ink:#eef3f7;--muted:#a3b4c4;--brass:#e0b052;--line:#27405a;--hero:#07101a;--btn:#e0b052;--btnt:#0f2236;--shadow:0 18px 40px -22px #000}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Georgia,"Times New Roman",serif}
-main{max-width:640px;margin:0 auto;padding:40px 20px 56px}
-h1{font-size:clamp(2rem,7vw,3rem);line-height:1.1;margin:0 0 18px;letter-spacing:-.01em}
-h2{font-size:1.25rem;margin:36px 0 10px}
-p{margin:0 0 14px;max-width:62ch}
-.award{border-left:4px solid var(--brass);padding:4px 0 4px 16px;margin:0 0 28px;color:var(--muted)}
-.award b{display:block;color:var(--ink);font-size:1.2rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
-.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-family:system-ui,sans-serif;font-size:.95rem}
-.row:last-of-type{border-bottom:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,.serif{font-family:Fraunces,Georgia,serif}
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--heroink);padding:64px 22px 84px;text-align:center}
+.hero::before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 50% 38%,rgba(217,164,65,.22),transparent 55%);animation:glow 7s ease-in-out infinite alternate}
+.hero>*{position:relative}
+.medal{width:150px;height:150px;margin:0 auto 26px;animation:drop 1.1s cubic-bezier(.2,.9,.25,1.1) both}
+.gear{transform-origin:100px 100px;animation:spin 28s linear infinite}
+.sheen{animation:sheen 4.5s ease-in-out 1.4s infinite}
+.kicker{font-size:.95rem;color:var(--brass2);letter-spacing:.02em;margin:0 0 10px;opacity:0;animation:fade .8s .5s forwards}
+h1{font-size:clamp(2.1rem,8vw,3.6rem);line-height:1.06;margin:0 auto 16px;max-width:15ch;letter-spacing:-.015em}
+h1 .w{display:inline-block;opacity:0;transform:translateY(.5em);animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
+.lead{max-width:46ch;margin:0 auto 28px;color:#d6dde4;opacity:0;animation:fade .9s 1.3s forwards}
+.count{display:inline-flex;gap:10px;opacity:0;animation:fade .9s 1.6s forwards}
+.unit{min-width:68px;padding:10px 6px;border:1px solid rgba(217,164,65,.45);border-radius:10px;background:rgba(255,255,255,.04)}
+.unit b{display:block;font:700 1.7rem/1.1 Fraunces,Georgia,serif;font-variant-numeric:tabular-nums}
+.unit span{font-size:.78rem;color:#b9c4cf}
+.due{margin:12px 0 0;font-size:.9rem;color:#b9c4cf;opacity:0;animation:fade .9s 1.8s forwards}
+main{max-width:660px;margin:0 auto;padding:0 20px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow);margin-top:-44px;position:relative}
+.goal{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.goal .amt{font:700 2.1rem/1 Fraunces,Georgia,serif;color:var(--brass)}
+.goal small{color:var(--muted)}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin:10px 0 18px}
+.bar i{display:block;height:100%;width:100%;transform-origin:left;background:linear-gradient(90deg,var(--brass),var(--brass2),var(--brass));background-size:200% 100%;animation:fill 1.6s 1s cubic-bezier(.2,.8,.2,1) both,slide 3s linear infinite;transform:scaleX(.08)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.97rem}
 .row span{color:var(--muted)}
 .row strong{text-align:right;word-break:break-word}
-button,a.btn{font:600 1rem system-ui,sans-serif;background:var(--btn);color:var(--btnt);border:0;border-radius:8px;padding:13px 18px;cursor:pointer;text-decoration:none;display:inline-block}
-.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
-button:focus-visible,a:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.note{font-size:.9rem;color:var(--muted)}
+.acct{font:700 1.5rem/1.2 Fraunces,Georgia,serif;letter-spacing:.04em}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+button{position:relative;overflow:hidden;font:600 1rem Inter,system-ui,sans-serif;background:var(--btn);color:var(--btnt);border:0;border-radius:10px;padding:14px 20px;cursor:pointer;flex:1 1 180px;transition:transform .15s,box-shadow .2s}
+button:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px var(--btn)}
+button:active{transform:scale(.97)}
+button.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+button.ok{animation:pop .45s}
+button:focus-visible{outline:3px solid var(--brass2);outline-offset:3px}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.4);transform:scale(0);animation:rip .6s ease-out;pointer-events:none}
+.note{font-size:.9rem;color:var(--muted);margin:14px 0 0}
+h2{font-size:1.45rem;margin:44px 0 10px}
+p{margin:0 0 14px;max-width:62ch}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+.sign{font:italic 500 1.3rem Fraunces,Georgia,serif;color:var(--brass)}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:30px;font-size:.92rem;opacity:0;pointer-events:none;transition:.3s;z-index:9}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.scrim{position:fixed;inset:0;background:rgba(5,12,20,.6);opacity:0;pointer-events:none;transition:opacity .3s;z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.scrim.open{opacity:1;pointer-events:auto}
+.sheet{width:100%;max-width:560px;max-height:92%;overflow:auto;background:var(--card);color:var(--ink);border-radius:20px 20px 0 0;padding:20px 20px calc(20px + env(safe-area-inset-bottom,0px));transform:translateY(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.scrim.open .sheet{transform:none}
+.sheet h3{font:700 1.3rem Fraunces,Georgia,serif;margin:0 0 4px}
+.sheet .sub{color:var(--muted);font-size:.92rem;margin:0 0 14px}
+.sheet .prev{display:block;width:min(100%,240px);aspect-ratio:4/5;margin:0 auto 16px;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--line)}
+.sheet .opts{display:grid;gap:10px}
+.sheet .opts button{flex:none;text-align:left;display:flex;justify-content:space-between;align-items:center}
+.sheet .opts small{font-weight:400;opacity:.8}
+.sheet .x{background:transparent;color:var(--muted);box-shadow:none;width:100%;margin-top:8px;flex:none}
+@keyframes drop{from{opacity:0;transform:translateY(-60px) scale(.7) rotate(-12deg)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sheen{0%,60%{transform:translateX(-140px)}100%{transform:translateX(160px)}}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes glow{to{transform:scale(1.12) translateY(-3%)}}
+@keyframes fill{to{transform:scaleX(1)}}
+@keyframes slide{to{background-position:-200% 0}}
+@keyframes pop{50%{transform:scale(1.05)}}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero *,.reveal{opacity:1!important;transform:none!important}.bar i{transform:none}}
 </style>
 </head>
 <body>
+<header class="hero">
+<svg class="medal" viewBox="0 0 200 200" role="img" aria-label="Gear medal">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1d28b"/><stop offset=".5" stop-color="#c58d2a"/><stop offset="1" stop-color="#8a5c12"/></linearGradient>
+<clipPath id="c"><circle cx="100" cy="100" r="62"/></clipPath></defs>
+<g class="gear"><circle cx="100" cy="100" r="84" fill="none" stroke="url(#g)" stroke-width="14" stroke-dasharray="14 9.4"/></g>
+<circle cx="100" cy="100" r="70" fill="url(#g)"/>
+<circle cx="100" cy="100" r="62" fill="#12283f"/>
+<path d="M100 66l9 18 20 3-14.500 14 3.500 20-18-9.500-18 9.500 3.500-20L71 87l20-3z" fill="url(#g)"/>
+<g clip-path="url(#c)"><rect class="sheen" x="40" y="20" width="26" height="160" fill="#fff" opacity=".16" transform="rotate(20 100 100)"/></g>
+</svg>
+<p class="kicker">A small request from a proud technician</p>
+<h1 id="title" aria-label="Help me collect my award">Help me collect my award</h1>
+<p class="lead">My department named me <strong>Best Technician of the Year</strong>. I would love to be there to receive it.</p>
+<div class="count" id="count" aria-live="off">
+<div class="unit"><b id="d">0</b><span>days</span></div>
+<div class="unit"><b id="h">0</b><span>hours</span></div>
+<div class="unit"><b id="m">0</b><span>mins</span></div>
+<div class="unit"><b id="s">0</b><span>secs</span></div>
+</div>
+<p class="due" id="due">Payment is due 17 October</p>
+</header>
+
 <main>
-<h1>Help me collect my award</h1>
-<div class="award"><b>Best Technician of the Year</b>Awarded by my department</div>
-
-<p>Hello,</p>
-<p>My department has chosen me as Best Technician of the Year. I am proud and grateful, and I would love to be there to receive it.</p>
-<p>The one thing standing in my way is the cost of collecting the award. I am raising <strong>₦25,000</strong> to cover it, and I am asking friends, family and well-wishers for help. The payment is due by <strong>17 October</strong>.</p>
-
-<h2>How giving works</h2>
-<p>Give whatever you are comfortable with. Every amount counts, and so does a kind word or sharing this page with someone else.</p>
-
-<div class="card" aria-label="Payment details">
+<section class="card" aria-label="Payment details">
+<div class="goal"><span class="amt">₦25,000</span><small>needed by 17 October</small></div>
+<div class="bar" aria-hidden="true"><i></i></div>
 <div class="row"><span>Account name</span><strong>CHIDERA EMMANUEL AGBO</strong></div>
 <div class="row"><span>Bank</span><strong>Access Bank</strong></div>
-<div class="row"><span>Account number</span><strong id="acct">1535239558</strong></div>
+<div class="row"><span>Account number</span><strong class="acct" id="acct">1535239558</strong></div>
 <div class="actions">
 <button id="copy" type="button">Copy account number</button>
-<button class="alt" id="wa" type="button">Share page file on WhatsApp</button>
+<button class="alt" id="share" type="button">Share this page</button>
 </div>
-<p class="note" style="margin:14px 0 0">After sending, a short message to me helps me say thank you personally.</p>
-</div>
+<p class="note">After sending, a short message to me helps me say thank you personally.</p>
+</section>
 
+<section class="reveal">
+<h2>How giving works</h2>
+<p>The one thing standing in my way is the cost of collecting the award. I am asking friends, family and well-wishers for help.</p>
+<p>Give whatever you are comfortable with. Every amount counts, and so does a kind word or sharing this page with someone else.</p>
+</section>
+
+<section class="reveal">
 <h2>Where the money goes</h2>
 <p>All donations go toward the cost of collecting the award. I am covering my outfit and other expenses myself.</p>
+</section>
 
+<section class="reveal">
 <h2>Thank you</h2>
 <p>Your support means more than I can say. I will share photos from the day with everyone who helped.</p>
-<p><strong>Chidera Emmanuel Agbo</strong></p>
+<p class="sign">Chidera Emmanuel Agbo</p>
+</section>
 </main>
+<div class="scrim" id="scrim" aria-hidden="true">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh">
+<h3 id="sh">Share this page</h3>
+<p class="sub">Choose how you want to share it.</p>
+<img class="prev" id="prev" alt="Preview of the share image">
+<div class="opts">
+<button type="button" id="oLink">Share as link <small>Opens the full page</small></button>
+<button type="button" class="alt" id="oPng">Share as PNG image <small>Sharpest</small></button>
+<button type="button" class="alt" id="oJpg">Share as JPEG image <small>Smaller file</small></button>
+</div>
+<button type="button" class="x" id="oX">Cancel</button>
+</div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
 <script>
-document.getElementById('copy').addEventListener('click',function(){
-  var b=this,t=document.getElementById('acct').textContent;
-  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy account number'},2000)}
-  function fallback(){
-    var ta=document.createElement('textarea');
-    ta.value=t;ta.setAttribute('readonly','');
-    ta.style.cssText='position:fixed;top:0;left:0;opacity:0';
-    document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,t.length);
+(function(){
+var t=document.getElementById('title'),words=t.textContent.split(' ');
+t.textContent='';
+words.forEach(function(w,i){var s=document.createElement('span');s.className='w';s.textContent=w;s.style.animationDelay=(0.6+i*0.12)+'s';t.appendChild(s);if(i<words.length-1)t.appendChild(document.createTextNode(' '))});
+
+var now=new Date(),y=now.getFullYear(),end=new Date(y,9,17,23,59,59);
+if(end<now&&now.getMonth()>9)end=new Date(y+1,9,17,23,59,59);
+function tick(){
+  var ms=end-new Date();
+  if(ms<=0){document.getElementById('count').style.display='none';document.getElementById('due').textContent='The 17 October due date has passed';return}
+  var p=function(n){return String(n).padStart(2,'0')};
+  document.getElementById('d').textContent=Math.floor(ms/864e5);
+  document.getElementById('h').textContent=p(Math.floor(ms/36e5)%24);
+  document.getElementById('m').textContent=p(Math.floor(ms/6e4)%60);
+  document.getElementById('s').textContent=p(Math.floor(ms/1e3)%60);
+}
+tick();setInterval(tick,1000);
+
+var toast=document.getElementById('toast'),tt;
+function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},2400)}
+function ripple(e){
+  var b=e.currentTarget,r=b.getBoundingClientRect(),d=document.createElement('span');
+  d.className='ripple';d.style.width=d.style.height='60px';
+  d.style.left=(e.clientX-r.left-30)+'px';d.style.top=(e.clientY-r.top-30)+'px';
+  b.appendChild(d);setTimeout(function(){d.remove()},650);
+}
+document.querySelectorAll('button').forEach(function(b){b.addEventListener('click',ripple)});
+
+var cb=document.getElementById('copy'),label=cb.textContent;
+cb.addEventListener('click',function(){
+  var v=document.getElementById('acct').textContent;
+  function done(){cb.textContent='Copied';cb.classList.add('ok');say('Account number copied');setTimeout(function(){cb.textContent=label;cb.classList.remove('ok')},2000)}
+  function fb(){
+    var ta=document.createElement('textarea');ta.value=v;ta.setAttribute('readonly','');
+    ta.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(ta);
+    ta.focus();ta.select();ta.setSelectionRange(0,v.length);
     var ok=false;try{ok=document.execCommand('copy')}catch(e){}
     document.body.removeChild(ta);
-    if(ok){done()}else{b.textContent='Press and hold the number to copy';setTimeout(function(){b.textContent='Copy account number'},3000)}
+    if(ok){done()}else{say('Press and hold the number to copy')}
   }
-  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fallback)}else{fallback()}
+  try{if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(v).then(done,fb)}else{fb()}}catch(e){fb()}
 });
-document.getElementById('wa').addEventListener('click',function(){
-  var b=this,label=b.textContent;
-  function msg(m){b.textContent=m;setTimeout(function(){b.textContent=label},3500)}
-  var html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
-  try{
-    var file=new File([html],'Award-Fundraiser.html',{type:'text/html'});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){
-      navigator.share({files:[file],title:'Help me collect my award'}).catch(function(){});
-    }else{msg('File sharing not supported here')}
-  }catch(e){msg('File sharing not supported here')}
+
+var TXT='Help me collect my Best Technician of the Year award';
+function rr(x,a,b,w,h,r){x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath()}
+function wrap(x,t,cx,y,mw,lh){var ws=t.split(' '),l='';ws.forEach(function(w){var n=l?l+' '+w:w;if(x.measureText(n).width>mw&&l){x.fillText(l,cx,y);y+=lh;l=w}else l=n});x.fillText(l,cx,y);return y+lh}
+function draw(){
+  var W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;var x=c.getContext('2d');
+  var S='Fraunces,Georgia,serif',I='Inter,system-ui,sans-serif',cx=W/2;
+  var g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#15324f');g.addColorStop(1,'#07101a');x.fillStyle=g;x.fillRect(0,0,W,H);
+  var r=x.createRadialGradient(cx,230,20,cx,230,620);r.addColorStop(0,'rgba(217,164,65,.28)');r.addColorStop(1,'rgba(217,164,65,0)');x.fillStyle=r;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(217,164,65,.55)';x.lineWidth=3;rr(x,28,28,W-56,H-56,28);x.stroke();
+  var m=x.createLinearGradient(cx-80,110,cx+80,270);m.addColorStop(0,'#f1d28b');m.addColorStop(.5,'#c58d2a');m.addColorStop(1,'#8a5c12');
+  x.fillStyle=m;x.beginPath();x.arc(cx,190,84,0,7);x.fill();
+  x.fillStyle='#12283f';x.beginPath();x.arc(cx,190,74,0,7);x.fill();
+  x.fillStyle=m;x.beginPath();
+  for(var i=0;i<10;i++){var a=-Math.PI/2+i*Math.PI/5,rad=i%2?18:40;x[i?'lineTo':'moveTo'](cx+Math.cos(a)*rad,190+Math.sin(a)*rad)}
+  x.closePath();x.fill();
+  x.textAlign='center';x.textBaseline='alphabetic';
+  x.fillStyle='#d9a441';x.font='600 36px '+I;x.fillText('Best Technician of the Year',cx,350);
+  x.fillStyle='#f5efe2';x.font='700 96px '+S;var y=wrap(x,'Help me collect my award',cx,460,860,106);
+  x.fillStyle='#cfd8e0';x.font='400 36px '+I;wrap(x,'My department chose me. I would love to be there to receive it, and I am asking for help with the cost.',cx,y+20,820,52);
+  x.fillStyle='#e0b052';x.font='700 132px '+S;x.fillText('\u20A625,000',cx,950);
+  x.fillStyle='#b9c4cf';x.font='400 34px '+I;x.fillText('needed by 17 October',cx,1003);
+  x.fillStyle='rgba(255,255,255,.07)';rr(x,90,1045,900,200,24);x.fill();
+  x.strokeStyle='rgba(217,164,65,.4)';x.lineWidth=2;x.stroke();
+  x.fillStyle='#f5efe2';x.font='600 32px '+I;x.fillText('CHIDERA EMMANUEL AGBO',cx,1100);
+  x.fillStyle='#b9c4cf';x.font='400 30px '+I;x.fillText('Access Bank',cx,1144);
+  x.fillStyle='#e0b052';x.font='700 66px '+S;x.fillText(document.getElementById('acct').textContent,cx,1215);
+  x.fillStyle='#8fa1b2';x.font='400 28px '+I;x.fillText('Every amount counts. Thank you.',cx,1296);
+  return c;
+}
+var scrim=document.getElementById('scrim'),prev=document.getElementById('prev'),card=null,lastFocus=null;
+function openSheet(){
+  lastFocus=document.activeElement;
+  function go(){card=draw();prev.src=card.toDataURL('image/jpeg',.8);scrim.classList.add('open');scrim.setAttribute('aria-hidden','false');document.getElementById('oLink').focus()}
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(go,go)}else{go()}
+}
+function closeSheet(){scrim.classList.remove('open');scrim.setAttribute('aria-hidden','true');if(lastFocus)lastFocus.focus()}
+document.getElementById('share').addEventListener('click',openSheet);
+document.getElementById('oX').addEventListener('click',closeSheet);
+scrim.addEventListener('click',function(e){if(e.target===scrim)closeSheet()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&scrim.classList.contains('open'))closeSheet()});
+document.getElementById('oLink').addEventListener('click',function(){
+  var url=location.href;
+  if(navigator.share){navigator.share({title:TXT,text:TXT,url:url}).then(closeSheet,function(){})}
+  else{window.open('https://wa.me/?text='+encodeURIComponent(TXT+' '+url),'_blank','noopener');closeSheet()}
 });
+function shareImg(type,ext){
+  if(!card)card=draw();
+  card.toBlob(function(b){
+    if(!b){say('Could not make the image');return}
+    var f;try{f=new File([b],'award-fundraiser.'+ext,{type:type})}catch(e){f=null}
+    if(f&&navigator.canShare&&navigator.canShare({files:[f]})){
+      navigator.share({files:[f],title:TXT,text:TXT+' '+location.href}).then(closeSheet,function(){});
+    }else{
+      prev.src=card.toDataURL(type,.92);
+      say('Press and hold the image to save it');
+    }
+  },type,.92);
+}
+document.getElementById('oPng').addEventListener('click',function(){shareImg('image/png','png')});
+document.getElementById('oJpg').addEventListener('click',function(){shareImg('image/jpeg','jpg')});
+
+var els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  els.forEach(function(el){io.observe(el)});
+}else{els.forEach(function(el){el.classList.add('in')})}
+})();
 </script>
 </body>
 </html>
